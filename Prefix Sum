@@ -1,1 +1,32 @@
+public class PrefixSum {
 
+    public static void PrefixSumOfArray(int [] numbers){
+        int[] preFix =new int[numbers.length];
+        int count =0;
+        int max= Integer.MIN_VALUE;
+
+        preFix[0]=numbers[0];
+        for(int i=1; i<numbers.length; i++){
+            preFix[i]= numbers[i]+preFix[i-1];
+        }
+
+        for(int i=0; i<numbers.length; i++){
+            for(int j=i; j<numbers.length; j++){
+                count=0;
+                count= i==0 ? preFix[j]: preFix[j]-preFix[i-1];
+                if(count>max){
+                    max=count;
+                }
+            }
+
+        }System.out.println("Max sum "+ max);
+
+    }
+
+    public static void main(String [] args){
+        int [] numbers = {6,-4,4,2,-8,9};;
+        PrefixSumOfArray(numbers);
+    }
+
+}
+//{6,4,-4,2,-8,9};
