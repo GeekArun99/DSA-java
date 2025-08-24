@@ -1,0 +1,34 @@
+public class SubArrayOfArray {
+
+    public static void PrintSubArray(int [] numbers){
+        int min= Integer.MAX_VALUE;
+        int max=Integer.MIN_VALUE;
+        int Count =0;
+          for(int i =0; i<numbers.length; i++){
+              for(int j=i; j<numbers.length; j++){
+                  System.out.print("(");
+                  for(int k =i; k<=j; k++){
+                      Count+=numbers[k];
+                      System.out.print(numbers[k] + " ");
+                      if(Count>max){
+                          max=Count;
+                      }
+                      if(Count<min){
+                          min=Count;
+                      }
+                  }
+                  System.out.print(")");
+                  System.out.println();
+              }
+              System.out.println();
+          }
+          System.out.println("Max count =" + max);
+          System.out.println("Min count =" + min);
+
+    }
+    public static void main(String [] args){
+        int [] numbers = {2,4,6,8,10};
+        PrintSubArray(numbers);
+
+    }
+}
